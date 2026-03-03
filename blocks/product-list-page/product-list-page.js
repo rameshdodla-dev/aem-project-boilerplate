@@ -145,6 +145,24 @@ export default async function decorate(block) {
     provider.render(SearchResults, {
       routeProduct: (product) => getProductLink(product.urlKey, product.sku),
       slots: {
+        ProductName: (ctx) => {
+          const { product, replaceWith } = ctx;
+          const wrapper = document.createElement('div');
+          wrapper.className = 'product-list-page__product-name';
+          const link = document.createElement('a');
+          link.href = getProductLink(product.urlKey, product.sku);
+          link.textContent = product.name;
+          link.className = 'product-list-page__product-name-link';
+          wrapper.appendChild(link);
+          const labelText = 'This is from Code';
+          if (labelText) {
+            const label = document.createElement('span');
+            label.className = 'product-list-page__product-label';
+            label.textContent = labelText;
+            wrapper.appendChild(label);
+          }
+          replaceWith(wrapper);
+        },
         ProductImage: (ctx) => {
           const { product, defaultImageProps } = ctx;
           const anchorWrapper = document.createElement('a');

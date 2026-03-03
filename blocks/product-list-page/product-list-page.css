@@ -81,6 +81,29 @@
     gap: var(--spacing-xxsmall);
 }
 
+/* Product name with label beside it */
+.block.product-list-page .product-list-page__product-name {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxsmall);
+    flex-wrap: wrap;
+}
+
+.block.product-list-page .product-list-page__product-name-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.block.product-list-page .product-list-page__product-name-link:hover {
+    text-decoration: underline;
+}
+
+.block.product-list-page .product-list-page__product-label {
+    font-size: 0.85em;
+    color: var(--color-brand-700, #0566eb);
+    font-weight: 500;
+}
+
 /* Empty State */
 
 .block.product-list-page.product-list-page--empty .search__wrapper {
